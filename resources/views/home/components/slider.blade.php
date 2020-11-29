@@ -18,14 +18,14 @@
                                 <img src="{{$baseurl.$slider->image_path}}">
                             </div>
                             <div class="header-box-content">
-                                <p class="header-box-c-cat">
+                                {{-- <p class="header-box-c-cat">
                                     <a href="#">{{$slider->name}}</a>
                                 </p>
 
                                 <p class="header-box-c-title">
                                     {{$slider->description}}
 
-                                </p>
+                                </p> --}}
                             </div>
                         </div>
                         <!-- end blog 1 -->

@@ -21,11 +21,18 @@
                                     <img src="{{config('app.base_url').$productRecommend->feature_image_path}}">
                                 </div>
                             </a>
-                            <a href="#">
-                                <div class="pi-img-box-sup">
-                                    <img src="{{config('app.base_url').$productRecommend->productImages[1]->image_path}}">
-                                </div>
-                            </a>
+                        
+                          @if (!empty($productRecommend->productImages[0]))
+                        
+                          <a href="#">
+                            <div class="pi-img-box-sup">
+                                <img src="{{config('app.base_url').$productRecommend->productImages[0]->image_path}}">
+                            </div>
+                        </a>
+                          @endif
+                           
+                        
+                           
                         </div>
                         <div class="pi-badges-wrap">
                             <div class="badge hot-label">HOT</div>

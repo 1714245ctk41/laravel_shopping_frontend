@@ -396,8 +396,8 @@ a.pi-compare {
    
   }
   .columns-flex{
-    flex: 20%;
-    max-width: 20%;
+    flex: 25%;
+    max-width: 25%;
   }
 @media only screen and (max-width: 70.62069em){
 /* @media only screen (min-width: 1000px){ */
@@ -417,9 +417,9 @@ a.pi-compare {
     width:20%;
   } */
   .columns-flex{
-    flex:20%;
+    flex:25%;
 
-    max-width: 20%;
+    max-width: 25%;
 }
   .large-12{
     position:relative;

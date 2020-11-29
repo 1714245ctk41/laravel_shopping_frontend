@@ -4,9 +4,11 @@
         @foreach ($categoriesLimit as $categoriesLimitItem)
 
     <li class="nav_parent ">
-        <a href="{{route('category.product', 
+        <a 
+        {{-- href="{{route('category.product', 
         ['slug' => $categoriesLimitItem->slug, 'categoryId' => $categoriesLimitItem->id]
-        )}}">{{$categoriesLimitItem->name}}
+        )}}" --}}
+        >{{$categoriesLimitItem->name}}
                 @if ($categoriesLimitItem->categoryChildrent->count())
                 <i style="font-size: 16px;
             color: #33333361;

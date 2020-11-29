@@ -32,6 +32,7 @@
 @php
     $i =0;
 @endphp
+
         @foreach ($categories as $indexCategoryProduct=>$categoryItemProduct)
 
             
@@ -41,9 +42,11 @@
         {{-- @foreach ($categoryItemProduct->categoryChildrent as $categoryChildrentItem) --}}
         {{-- {{dd($categoryChildrentItem->products)}} --}}
        
-        @foreach ($categoryItemProduct->products as $categoryChildrentItemProduct)
+        @foreach ($categoryItemProduct->categoryChildrent as $categoryChildrentItemProduct)
        
-        
+        @foreach ($categoryChildrentItemProduct->products as $categoryChildrentItemProductInfo)
+  
+     
             <!-- start product  -->
             {{-- <div class="trendyItem-product-item columns large-3 medium-4 small-6"> --}}
 
@@ -53,14 +56,17 @@
                         <div class="pi-img-box">
                             <a href="#">
                                 <div class="pi-img-box-main">
-                                    <img src="{{config('app.base_url').$categoryChildrentItemProduct->feature_image_path}}">
+                                    <img src="{{config('app.base_url').$categoryChildrentItemProductInfo->feature_image_path}}">
                                 </div>
                             </a>
+                            @if (!empty($categoryChildrentItemProductInfo->productImages[0]))
                             <a href="#">
                                 <div class="pi-img-box-sup">
-                                    <img src="{{config('app.base_url').$categoryChildrentItemProduct->productImages[1]->image_path}}">
+                                    <img src="{{config('app.base_url').$categoryChildrentItemProductInfo->productImages[0]->image_path}}">
                                 </div>
                             </a>
+                            @endif
+                           
                         </div>
                         <div class="pi-badges-wrap">
                         <div class="badge hot-label">HOT</div>
@@ -76,7 +82,7 @@
                         <div class="pi-add-to-cart move-left">
                             <a href="#" class="add_to_cart" 
                         {{-- data-id="{{$categoryChildrentItemProduct->id}}" --}}
-                        data-url="{{route('addToCart', ['id' => $categoryChildrentItemProduct->id])}}"
+                        data-url="{{route('addToCart', ['id' => $categoryChildrentItemProductInfo->id])}}"
                         {{-- id="myBtn{{$categoryChildrentItemProduct->id}}" --}}
                             >
                                 <span>ADD TO CART</span>
@@ -90,7 +96,7 @@
                         <div class="pi-info-wrap">
                             <div class="pi-info-name">
                                 
-                                <a href="#">{{$categoryChildrentItemProduct->name}}</a>
+                                <a href="#">{{$categoryChildrentItemProductInfo->name}}</a>
                             </div>
                             <div class="pi-star-and-color">
                                 <div class="pi-star-and-color-wrap">
@@ -128,7 +134,7 @@
                                 </div>
                             </div>
                             <div class="pi-info-price">
-                               {{number_format($categoryChildrentItemProduct->price)}} <sup>vnđ</sup>
+                               {{number_format($categoryChildrentItemProductInfo->price)}} <sup>vnđ</sup>
                                
                             </div>
                         </div>
@@ -137,7 +143,7 @@
             </div>
             <!-- end product  -->
         @endforeach
-
+        @endforeach
         {{-- @endforeach --}}
 
             <!-- b4-nav-tabs -->
